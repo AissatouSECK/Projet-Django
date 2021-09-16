@@ -3,9 +3,12 @@ from .models import Employer, Departement
 from .forms import Form_employer
 
 
-# Create your views here.
+
+
+
 
 # To create employee
+
 def emp(request):
     if request.method == "POST":
 
@@ -27,6 +30,7 @@ def showemp(request):
     return render(request, "main.html", {'employees':employees})
 
 # To delete employee details
+
 def deleteEmp(request, pk):
     employee = Employer.objects.get(pk=pk)
     employee.delete()
@@ -38,6 +42,7 @@ def editemp(request, pk):
     return render(request, "edit.html", {'employee':employee})
 
 # To update employee details
+
 def updateEmp(request, pk):
     employee = Employer.objects.get(pk=pk)
     form = Form_employer(request.POST, instance= employee)
